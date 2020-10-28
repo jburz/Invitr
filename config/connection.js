@@ -1,8 +1,8 @@
 // Set up MYSQL connection
 const Connection = function () {
-    var mysql = require('mysql');
+    var mysql = require("mysql");
 
-    var connection = mysql.createConnection({
+    const connection = mysql.createConnection({
         host: "localhost",
         port: 3306,
         user: "root",
@@ -12,7 +12,7 @@ const Connection = function () {
 
     connection.connect(function (err) {
         if (err) throw err;
-        console.log('Connected');
+        console.log("Connected");
     });
 };
 
