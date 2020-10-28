@@ -11,7 +11,7 @@ const Connection = function () {
     });
 
     connection.connect((err) => {
-        if (err) { throw err };
+        if (err) { throw err; }
         console.log("Connected");
     });
 };
