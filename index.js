@@ -1,20 +1,17 @@
 const express = require("express");
 const app = express();
-const connection = require("./config/connection");
+// const db = require("./models")
 
 const PORT = process.env.PORT || 8080;
 
-app.use(express.static("public"));
-
+app.use(express.static("app/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const routes = require("./controllers/controller");
-app.use(routes);
+require("./routes/api-routes.js")(app);
 
-
-app.listen(PORT, () => {
-    console.log("Server listening on Port: " + PORT);
+// db.sequelize.sync({ force: true }).then(function () {
+app.listen(PORT, function () {
+    console.log("Listening on Port: " + PORT);
 });
-
-connection();
+// });
