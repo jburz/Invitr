@@ -4,15 +4,16 @@
 //require packages and files
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const db = require("../models/user.js");
 
 passport.use(new LocalStrategy(
     {
-        username: "username"
+        username: "email"
     },
     //function that attempts login against username and password in db
-    (username, password, done) => {
+    (email, password, done) => {
         //need a user model here to access the table in the database
-        console.log(username);
+        console.log(email);
         console.log(password);
         console.log(done);
     }

@@ -3,6 +3,7 @@ const bcrypt = require("brcyptjs");
 
 //create a user model to authenticate
 module.exports = (sequelize, DataTypes) => {
+    console.log("hit create user");
     const User = sequelize.define("User", {
         //requires an email address as a login
         email: {
