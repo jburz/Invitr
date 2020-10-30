@@ -1,3 +1,6 @@
+//require packages and files
+require("dotenv").config();
+
 // Set up MYSQL connection
 const Connection = function () {
     const mysql = require("mysql");
@@ -6,7 +9,7 @@ const Connection = function () {
         host: "localhost",
         port: 3306,
         user: "root",
-        password: "fishsticks420",
+        password: process.env.mysqlPassword,
         database: "weddinginvite_db"
     });
 
