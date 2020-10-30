@@ -1,1 +1,5 @@
 /* Create styles for the client-facing output */
+
+.catBox {
+    background-color: aqua;
+}
