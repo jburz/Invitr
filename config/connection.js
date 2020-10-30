@@ -1,22 +1,16 @@
-//require packages and files
-require("dotenv").config();
+// Set up MYSQL connection using sequelize
+const Sequelize = require("sequelize");
 
-// Set up MYSQL connection
-const Connection = function () {
-    const mysql = require("mysql");
+const sequelize = new Sequelize("weddinginvite_db", "root", "fishsticks420", {
+    host: "localhost",
+    port: 3306,
+    dialect: "mysql",
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    }
+});
 
-    const connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: process.env.mysqlPassword,
-        database: "weddinginvite_db"
-    });
-
-    connection.connect((err) => {
-        if (err) { throw err; }
-        console.log("Connected");
-    });
-};
-
-module.exports = Connection;
+// Exports the connection
+module.exports = sequelize;
