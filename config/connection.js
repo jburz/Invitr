@@ -1,7 +1,7 @@
 // Set up MYSQL connection using sequelize
-var Sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
-var sequelize = new Sequelize("weddinginvite_db", "root", "", {
+const sequelize = new Sequelize("weddinginvite_db", "root", "", {
     host: "localhost",
     port: 3306,
     dialect: "mysql",

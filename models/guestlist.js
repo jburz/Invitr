@@ -1,9 +1,9 @@
 // ORM that works with the Guest List part of the app
-var Sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
-var sequelize = require("../config/connection.js");
+const sequelize = require("../config/connection.js");
 
-var GuestList = sequelize.define("guest_list", {
+const GuestList = sequelize.define("guest_list", {
     first_name: Sequelize.STRING,
     last_name: Sequelize.STRING,
     phone_number: Sequelize.STRING,
@@ -19,10 +19,10 @@ var GuestList = sequelize.define("guest_list", {
     rsvp: Sequelize.BOOLEAN,
     comment: Sequelize.STRING,
     createdAt: {
-        type: 'DATETIME(3) DEFAULT CURRENT_TIMESTAMP(3)'
+        type: "DATETIME(3) DEFAULT CURRENT_TIMESTAMP(3)"
     },
     updatedAt: {
-        type: 'DATETIME(3) DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'
+        type: "DATETIME(3) DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)"
     }
 });
 
