@@ -20,6 +20,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }
     });
-    //
+    //method to validate the password - this compares the inputted password against the password in the database.
+    User.prototype.validPassword = (password) => {
+        return bcrypt.compareSync(password, thispassword);
+    };
 
+    //additional method that will hash the user password before the user is added to the database
+    User.addHook("beforeCreate", (user) => {
+        user.password = brcypt.hashSync(user.password, brcrypt.genSaltSync(10), null);
+    });
 };
