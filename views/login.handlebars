@@ -1,11 +1,20 @@
-<form>
-    <div class="form-group">
-        <label for="Login">Username</label>
-        <input type="text" class="form-control" id="userLogin">
-        <label for="Login">Password</label>
-        <input type="text" class="form-control" id="passLogin">
-
+<div class="container">
+    <div class="centered">
+        <div class="row">
+            <div class="columns box">
+                <form>
+                    <div class="form-group">
+                        <label for="Login">Username</label>
+                        <input type="text" class="form-control u-full-width" id="userLogin" placeholder="Username">
+                        <label for="Login">Password</label>
+                        <input type="text" class="form-control u-full-width" id="passLogin" placeholder="Password">
+                    </div>
+                    <div class="one-half columns">
+                        <button type="submit" class="btn btn-primary" id="addBurger">Login</button>
+                        <button type="submit" class="btn btn-primary" id="addBurger">Create new user</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary" id="addBurger">Login</button>
-</form>
+</div>
