@@ -6,7 +6,7 @@
 
 /* CSS FOR LANDING PAGE */
 body {
-  /* background-color:  ; */
+  background-color:  #CB997E;
   /* color: ; */
   margin: 0;
   padding: 0;
@@ -32,8 +32,8 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #CB997E;
   font-size: 500%;
+  color: #ddbea9;
 }
 
 /* BODY SECTION CONTENT */
@@ -50,19 +50,34 @@ body {
 
 /* BUTTON */
 .newUserBtn, .loginBtn {
-  background-color: black;
+  background-color: #333;
   color: white;
   font-size: 100%;
   margin: 0 auto;
   margin-bottom: 50px;
 }
 
+/* SIGN UP BUTTON */
+.btn {
+  background-color: #333;
+  color: white;
+  font-size: large;
+}
+
+.btn :hover {
+  background-color: #333;
+  color: white;
+  font-size: large;
+}
+
 /* COLUMNS CSS BOX SHADOW */
 .three {
   border-radius: 3px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.9);
-  font-size: larger;
-  margin: 10px;
+  font-size: 150%;
+  /* padding: 10px; */
+  background-color: #f0efeb;
+  margin: 5px;
 }
 
 /* @ MEDIA SCREENS */
@@ -91,12 +106,6 @@ body {
   font-size: 17px;
 }
 
-.topnavLeft {
-  float: right;
-  color: #f2f2f2;
-  font-size: 17px;
-}
-
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #ddd;
@@ -115,7 +124,26 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: red;
-  color: white;
+  background-color: #eddcd2;
+  color: #333;
   text-align: center;
+}
+
+/* CENTER IN FORMS */
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  font-size: 500%;
+}
+
+/* BOX LOGIN */
+.box {
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+  /* font-size: larger; */
+  padding: 100px;
+  background-color: #f0efeb;
 }
