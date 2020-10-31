@@ -1,7 +1,8 @@
 // Set up MYSQL connection using sequelize
 const Sequelize = require("sequelize");
+require("dotenv").config();
 
-const sequelize = new Sequelize("weddinginvite_db", "root", "fishsticks420", {
+const sequelize = new Sequelize("weddinginvite_db", "root", process.env.mysqlPassword, {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
