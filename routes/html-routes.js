@@ -1,3 +1,6 @@
+//require packages and files
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 module.exports = function (app) {
     app.get("/", (req, res) => {
         res.render("landingpage");
