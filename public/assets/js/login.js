@@ -1,8 +1,18 @@
 $(() => {
     $("#login").on("click", (event) => {
-
         event.preventDefault();
-        console.log(event);
-        console.log("log me in!");
+        const username = $("#usernameLogin").val().trim();
+        const password = $("#passLogin").val().trim();
+        const userObj = {
+            username: username,
+            password: password
+        };
+
+        $.ajax("/api/login", {
+            method: "POST",
+            data: userObj
+        }).then((res) => {
+            console.log(res);
+        });
     });
 });

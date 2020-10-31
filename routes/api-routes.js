@@ -10,5 +10,16 @@ module.exports = function (app) {
         });
     });
 
+    app.post("/api/signup", (req, res) => {
+        console.log("sign me up!");
+        console.log(req.body);
+        res.json("signed up!");
 
+    });
+
+    app.post("/api/login", (req, res) => {
+        console.log("log me in!");
+        console.log(req.body);
+        res.json("logged in!");
+    });
 };
