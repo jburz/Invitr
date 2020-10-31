@@ -1,19 +1,24 @@
 // Create routes and set up logic within those routes when required
-const GuestList = require("../models/guestlist.js");
+const db = require("../models");
 // var GuestLogin = require("../models/guestlogin.js");
 
 // Provide a list of all people currently on the guest list
 module.exports = function (app) {
     app.get("/api/all", (req, res) => {
-        GuestList.findAll({}).then((results) => {
+        db.GuestList.findAll({}).then((results) => {
             res.json(results);
         });
     });
 
     app.post("/api/signup", (req, res) => {
-        console.log("sign me up!");
-        console.log(req.body);
-        res.json("signed up!");
+        db.User.create({
+            email: req.body.username,
+            password: req.body.password
+        }).then(() => {
+            res.redirect(307, "/api/login");
+        }).catch((err) => {
+            res.status(401).json(err);
+        });
 
     });
 

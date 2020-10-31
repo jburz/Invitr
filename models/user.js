@@ -1,5 +1,5 @@
 //require packages and files
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 
 //create a user model to authenticate
 module.exports = function (sequelize, DataTypes) {
@@ -21,13 +21,13 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     //method to validate the password - this compares the inputted password against the password in the database.
-    User.prototype.validPassword = (password) => {
-        return bcrypt.compareSync(password, thispassword);
-    };
+    // User.prototype.validPassword = (password) => {
+    //     return bcrypt.compareSync(password, thispassword);
+    // };
 
     //additional method that will hash the user password before the user is added to the database
-    User.addHook("beforeCreate", (user) => {
-        user.password = brcypt.hashSync(user.password, brcrypt.genSaltSync(10), null);
-    });
+    // User.addHook("beforeCreate", (user) => {
+    //     user.password = brcypt.hashSync(user.password, brcrypt.genSaltSync(10), null);
+    // });
     return User;
 };
