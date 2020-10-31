@@ -1,5 +1,7 @@
 // Create routes and set up logic within those routes when required
 const db = require("../models");
+const passport = require("../config/passport");
+
 // var GuestLogin = require("../models/guestlogin.js");
 
 // Provide a list of all people currently on the guest list
@@ -22,9 +24,9 @@ module.exports = function (app) {
 
     });
 
-    app.post("/api/login", (req, res) => {
+    app.post("/api/login", passport.authenticate("local"), (req, res) => {
         console.log("log me in!");
         console.log(req.body);
-        res.json("logged in!");
+        res.json(req.user);
     });
 };
