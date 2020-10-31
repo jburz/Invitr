@@ -3,3 +3,119 @@
 .catBox {
     background-color: aqua;
 }
+
+/* CSS FOR LANDING PAGE */
+body {
+  /* background-color:  ; */
+  /* color: ; */
+  margin: 0;
+  padding: 0;
+}
+
+/* SHOWCASE IMAGE FOR FULL PAGE */
+.showcaseimg {
+  width: auto;
+  height: auto;
+}
+
+/* MAKES ANY CONTAINER FULL WIDTH */
+.full-width-container {
+  width: 100%;
+  max-width: 100%;
+  clear: both;
+  margin: 0 auto;
+}
+
+/* CENTERS THE TEXT IN MIDDLE OF THE IMAGE */
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #CB997E;
+  font-size: 500%;
+}
+
+/* BODY SECTION CONTENT */
+.section-a, .section-a-title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.section-b {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* BUTTON */
+.newUserBtn, .loginBtn {
+  background-color: black;
+  color: white;
+  font-size: 100%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+/* COLUMNS CSS BOX SHADOW */
+.three {
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+  font-size: larger;
+  margin: 10px;
+}
+
+/* @ MEDIA SCREENS */
+@media screen and (orientation: portrait) {
+  .showcaseimg { max-width: auto; }
+}
+
+@media screen and (orientation: landscape) {
+  .showcaseimg { max-height: auto; }
+}
+
+/* NAVBAR CSS */
+/* Add a black background color to the top navigation */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnavLeft {
+  float: right;
+  color: #f2f2f2;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* FOOTER CSS */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
