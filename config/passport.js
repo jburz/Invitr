@@ -4,7 +4,7 @@
 //require packages and files
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const db = require("../models/user.js");
+// const db = require("../models/user.js");
 
 passport.use(new LocalStrategy(
     {
@@ -24,9 +24,9 @@ passport.serializeUser((user, cb) => {
     cb(null, user);
 });
 
-passport.deserializeUser((obj, cb) {
-    cb(null, obj);
-});
+// passport.deserializeUser((obj, cb) {
+//     cb(null, obj);
+// });
 
 //export configured passport
 module.exports = passport;
