@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "watch": "nodemon index.js",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
     "lint": "eslint \"**/*.js\""
   },
   "repository": {

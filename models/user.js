@@ -1,9 +1,8 @@
 //require packages and files
-const bcrypt = require("brcyptjs");
+const bcrypt = require("bcryptjs");
 
 //create a user model to authenticate
-module.exports = (sequelize, DataTypes) => {
-    console.log("hit create user");
+module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define("User", {
         //requires an email address as a login
         email: {
@@ -30,4 +29,5 @@ module.exports = (sequelize, DataTypes) => {
     User.addHook("beforeCreate", (user) => {
         user.password = brcypt.hashSync(user.password, brcrypt.genSaltSync(10), null);
     });
+    return User;
 };
