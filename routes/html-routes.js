@@ -1,6 +1,6 @@
 module.exports = function (app) {
     app.get("/", (req, res) => {
-        res.send("home page!");
+        res.render("landingpage");
     });
 
     app.get("/dashboard", (req, res) => {
