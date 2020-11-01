@@ -30,6 +30,8 @@ passport.use(new LocalStrategy(
                 });
             }
             return done(null, dbUser);
+        }).catch(err => {
+            console.log(err);
         });
     }
 ));

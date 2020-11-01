@@ -13,20 +13,24 @@ module.exports = function (app) {
     });
 
     app.post("/api/signup", (req, res) => {
+        console.log(req.body.username);
+        console.log(req.body.password);
         db.User.create({
             email: req.body.username,
             password: req.body.password
         }).then(() => {
             res.redirect(307, "/api/login");
         }).catch((err) => {
+            console.log(err);
             res.status(401).json(err);
         });
 
     });
 
-    app.post("/api/login", passport.authenticate("local"), (req, res) => {
-        console.log("log me in!");
-        console.log(req.body);
+    app.post("/api/login", passport.authenticate("local", {
+        failureFlash
+    }), (req, res) => {
         res.json(req.user);
     });
+
 };

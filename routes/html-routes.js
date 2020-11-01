@@ -11,6 +11,10 @@ module.exports = function (app) {
     });
 
     app.get("/login", (req, res) => {
+        console.log("hit /login");
+        if (req.user) {
+            res.redirect("/dashboard");
+        }
         res.render("login");
     });
 

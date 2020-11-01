@@ -12,7 +12,9 @@ $(() => {
             method: "POST",
             data: newUserObj
         }).then((res) => {
-            console.log(res);
+            location.replace("/dashboard");
+        }).catch((err) => {
+            console.log(err);
         });
     });
 
