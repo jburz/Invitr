@@ -4,8 +4,9 @@
 //require packages and files
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-// const db = require("../models/user.js");
+const db = require("../models");
 
+//local strategy to authenticate user
 passport.use(new LocalStrategy(
     {
         username: "email"
@@ -13,9 +14,25 @@ passport.use(new LocalStrategy(
     //function that attempts login against username and password in db
     (email, password, done) => {
         //need a user model here to access the table in the database
-        console.log(email);
-        console.log(password);
-        console.log(done);
+        db.User.findOne({
+            where: {
+                email: email
+            }
+        }).then((dbUser) => {
+            if (!dbUser) {
+                return done(null, false, {
+                    message: "Incorrect email."
+                });
+            }
+            else if (!dbUser.validPassword(password)) {
+                return done(null, false, {
+                    message: "Incorrect password."
+                });
+            }
+            return done(null, dbUser);
+        }).catch(err => {
+            console.log(err);
+        });
     }
 ));
 
@@ -24,9 +41,9 @@ passport.serializeUser((user, cb) => {
     cb(null, user);
 });
 
-// passport.deserializeUser((obj, cb) {
-//     cb(null, obj);
-// });
+passport.deserializeUser((obj, cb) => {
+    cb(null, obj);
+});
 
 //export configured passport
 module.exports = passport;
