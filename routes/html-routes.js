@@ -19,6 +19,9 @@ module.exports = function (app) {
     });
 
     app.get("/signup", (req, res) => {
+        if (req.user) {
+            res.redirect("/dashboard");
+        }
         res.render("signup");
     });
 

@@ -27,9 +27,7 @@ module.exports = function (app) {
 
     });
 
-    app.post("/api/login", passport.authenticate("local", {
-        failureFlash
-    }), (req, res) => {
+    app.post("/api/login", passport.authenticate("local"), (req, res) => {
         res.json(req.user);
     });
 
