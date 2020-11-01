@@ -11,7 +11,7 @@ $(() => {
         $.ajax("/api/signup", {
             method: "POST",
             data: newUserObj
-        }).then((res) => {
+        }).then(() => {
             location.replace("/dashboard");
         }).catch((err) => {
             console.log(err);

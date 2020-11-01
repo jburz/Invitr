@@ -11,7 +11,7 @@ $(() => {
         $.ajax("/api/login", {
             method: "POST",
             data: userObj
-        }).then((res) => {
+        }).then(() => {
             location.replace("/dashboard");
         }).catch(err => {
             console.log(err);
