@@ -18,4 +18,7 @@ module.exports = function (app) {
         res.render("signup");
     });
 
+    app.get("/addguest", (req, res) => {
+        res.render("addguest");
+    });
 };
