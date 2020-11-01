@@ -18,4 +18,8 @@ module.exports = function (app) {
     app.get("/addguest", (req, res) => {
         res.render("addguest");
     });
+
+    app.get("/details", (req, res) => {
+        res.render("details");
+    });
 };
