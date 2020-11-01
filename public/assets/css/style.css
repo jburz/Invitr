@@ -1,7 +1,9 @@
 /* Create styles for the client-facing output */
 
 .catBox {
-    background-color: aqua;
+  border: black solid;
+  background-color: aqua;
+  margin: 10px;
 }
 
 /* CSS FOR LANDING PAGE */
@@ -147,3 +149,8 @@ body {
   padding: 100px;
   background-color: #f0efeb;
 }
+
+.dhsummary {
+  text-align: center;
+}
+
