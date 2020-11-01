@@ -6,12 +6,13 @@ const passport = require("../config/passport");
 
 // Provide a list of all people currently on the guest list
 module.exports = function (app) {
-    app.get("/api/all", (req, res) => {
-        db.GuestList.findAll({}).then((results) => {
-            res.json(results);
-        });
+
+    //this route authenticates the user from the login screen
+    app.post("/api/login", passport.authenticate("local"), (req, res) => {
+        res.json(req.user);
     });
 
+    //creates a new user and redirects to home
     app.post("/api/signup", (req, res) => {
         console.log(req.body.username);
         console.log(req.body.password);
@@ -24,11 +25,20 @@ module.exports = function (app) {
             console.log(err);
             res.status(401).json(err);
         });
-
     });
 
-    app.post("/api/login", passport.authenticate("local"), (req, res) => {
-        res.json(req.user);
+    //route to logout
+    app.get("/logout", (req, res) => {
+        req.logout();
+        res.redirect("landingpage");
     });
+
+    app.get("/api/all", (req, res) => {
+        db.GuestList.findAll({}).then((results) => {
+            res.json(results);
+        });
+    });
+
+
 
 };
