@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+        <div class="twelve columns">
+            <h1>Add a guest</h1>
+        </div>
+    </div>
+
+    {{!-- form for adding a new guest --}}
+    <form>
+        {{!-- Name --}}
+        <div class="row">
+            <div class="six columns">
+                <label for="firstName">First Name</label>
+                <input class="u-full-width" type="text" id="firstName">
+            </div>
+            <div class="six columns">
+                <label for="lastName">Last Name</label>
+                <input class="u-full-width" type="text" id="lastName">
+            </div>
+        </div>
+
+        {{!-- Phone number --}}
+        <div class="row">
+            <div class="twelve columns">
+                <label for="phoneNumber">Phone Number</label>
+                <input class="u-full-width" type="tel" id="phoneNumber">
+            </div>
+        </div>
+
+        {{!-- address --}}
+        <div class="row">
+            <div class="six columns">
+                <label for="streetAddress">Street Address</label>
+                <input class="u-full-width" type="text" id="streetAddress">
+            </div>
+            <div class="six columns">
+                <label for="cityAddress">City</label>
+                <input class="u-full-width" type="text" id="cityAddress">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="zipAddress">Zip code</label>
+                <input class="u-full width" type="text" id="zipAddress">
+            </div>
+            <div class="six columns">
+                <label for="stateAddress">State</label>
+                <input class="u-full width" type="text" id="stateAddress">
+            </div>
+        </div>
+
+        {{!-- Food restrictions --}}
+        <div class="row">
+            <div class="two columns">
+                <label for="foodRestrictBool">Food restrictions</label>
+                <input class="u-full width" type="checkbox" id="foodRestrictBool">
+            </div>
+            <div class="ten columns">
+                <label for="foodRestrictText">Details</label>
+                <input class="u-full width" type="text" id="foodRestrictText">
+            </div>
+        </div>
+
+        {{!-- Email --}}
+        <div class="row">
+            <div class="twelve columns">
+                <label for="email">Email</label>
+                <input class="u-full width" type="email" id="email">
+            </div>
+        </div>
+
+        {{!-- Additional Guests --}}
+        <div class="row">
+            <div class="twelve columns">
+                <label for="additionalGuests">Number of Additional Guests</label>
+                <input class="u-full width" type="number">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <input type="submit" value="Submit">
+            </div>
+            <div class="six columns">
+                {{!-- Button to go back to guest detail page without adding a new guest --}}
+                <input type="button" value="Cancel">
+            </div>
+        </div>
+    </form>
+
+
+
+</div> 
