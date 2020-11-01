@@ -2,22 +2,23 @@
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
+    //route to dashboard if authenticated
     app.get("/", (req, res) => {
+        if (req.user) {
+            res.redirect("/dashboard");
+        }
         res.render("landingpage");
     });
 
-    app.get("/dashboard", (req, res) => {
-        res.render("dashboard");
-    });
-
+    //route to dashboard if authenticated
     app.get("/login", (req, res) => {
-        console.log("hit /login");
         if (req.user) {
             res.redirect("/dashboard");
         }
         res.render("login");
     });
 
+    //route to dashboard if authenticated
     app.get("/signup", (req, res) => {
         if (req.user) {
             res.redirect("/dashboard");
@@ -25,7 +26,14 @@ module.exports = function (app) {
         res.render("signup");
     });
 
-    app.get("/addguest", (req, res) => {
+    //route to login if not authenticated
+    app.get("/dashboard", isAuthenticated, (req, res) => {
+        res.render("dashboard");
+    });
+
+    //route to login if not authenticated
+    app.get("/addguest", isAuthenticated, (req, res) => {
         res.render("addguest");
     });
+
 };

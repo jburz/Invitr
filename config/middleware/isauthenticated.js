@@ -5,5 +5,5 @@ module.exports = (req, res, next) => {
         return next();
     }
     //other redirect to login
-    return res.redirect("login");
+    return res.redirect("/login");
 };

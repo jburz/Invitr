@@ -30,7 +30,7 @@ module.exports = function (app) {
     //route to logout
     app.get("/logout", (req, res) => {
         req.logout();
-        res.redirect("landingpage");
+        res.redirect("/");
     });
 
     app.get("/api/all", (req, res) => {
