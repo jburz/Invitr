@@ -8,7 +8,9 @@ const passport = require("../config/passport");
 module.exports = function (app) {
 
     //this route authenticates the user from the login screen
-    app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    app.post("/api/login", passport.authenticate("local", {
+        failureFlash: true
+    }), (req, res) => {
         res.json(req.user);
     });
 
