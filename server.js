@@ -4,6 +4,7 @@ const db = require("./models");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const passport = require("./config/passport");
+const flash = require("express-flash");
 
 const PORT = process.env.PORT || 8080;
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(flash());
 
 //keep track of user sessions
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
