@@ -14,6 +14,9 @@
             <div class="columns box">
                 <form>
                     <div class="form-group">
+                        {{#if messages.error}}
+                        <p>{{messages.error}}</p>
+                        {{/if}}
                         <label for="Login">Username</label>
                         <input type="text" class="form-control u-full-width" id="usernameLogin" placeholder="Username">
                         <label for="Login">Password</label>
@@ -22,6 +25,7 @@
                     <div class="one-half columns">
                         <button type="submit" class="btn btn-primary" id="login">Login</button>
                     </div>
+                    <h6>Or sign up <a href="/signup">here</a></h6>
                 </form>
             </div>
         </div>
