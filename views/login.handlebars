@@ -11,13 +11,13 @@
             <div class="columns box">
                 <form>
                     <div class="form-group">
-                        {{#if messages.error}}
-                        <p>{{messages.error}}</p>
-                        {{/if}}
                         <label for="Login">Username</label>
                         <input type="text" class="form-control u-full-width" id="usernameLogin" placeholder="Username">
                         <label for="Login">Password</label>
                         <input type="text" class="form-control u-full-width" id="passLogin" placeholder="Password">
+                        {{#if messages.error}}
+                        <h6>{{messages.error}}</h6>
+                        {{/if}}
                     </div>
                     <div class="one-half columns">
                         <button type="submit" class="btn btn-primary" id="login">Login</button>

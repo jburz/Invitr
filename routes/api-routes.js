@@ -9,13 +9,12 @@ module.exports = function (app) {
     app.post("/api/login", passport.authenticate("local", {
         failureFlash: true
     }), (req, res) => {
+        console.log(res);
         res.json(req.user);
     });
 
     //creates a new user and redirects to home
     app.post("/api/signup", (req, res) => {
-        console.log(req.body.username);
-        console.log(req.body.password);
         db.User.create({
             email: req.body.username,
             password: req.body.password
