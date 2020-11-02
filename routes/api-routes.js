@@ -2,8 +2,6 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-// var GuestLogin = require("../models/guestlogin.js");
-
 // Provide a list of all people currently on the guest list
 module.exports = function (app) {
 
