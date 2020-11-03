@@ -33,9 +33,10 @@ module.exports = function (app) {
     app.get("/api/all", (req, res) => {
         db.GuestList.findAll({
             where: {
-                UserId: req.user.ids
+                UserId: req.user.id
             }
         }).then((results) => {
+            console.log(req.user.id);
             console.log(results);
             res.json(results);
         }).catch((err) => {

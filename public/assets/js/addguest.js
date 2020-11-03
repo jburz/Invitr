@@ -1,5 +1,3 @@
-// front-end script file
-
 // ==== ADD A GUEST PAGE ==================
 
 function trimInfo(value) {
@@ -25,6 +23,8 @@ $("#submitNewGuest").click((event) => {
         comment: trimInfo($("#comment"))
     };
     console.log(newGuestInfo);
-    $.post("/api/newGuest", newGuestInfo);
+    $.post("/api/newGuest", newGuestInfo).then(
+        res.redirect("/dashboard")
+    );
 }
 );

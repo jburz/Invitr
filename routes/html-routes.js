@@ -39,31 +39,56 @@ module.exports = function (app) {
             incompleteInfo: 0,
             haveRSVP: 0
         };
-        db.GuestList.count().then((allGuests) => {
+        db.GuestList.count({
+            where: {
+                UserId: req.user.id
+            }
+        }).then((allGuests) => {
             // count how many guests are listed in database
             allCounts.allListed = allGuests;
             // count how many invitations sent
-            return db.GuestList.count({ where: { "invited": 1 } });
+            return db.GuestList.count({
+                where: {
+                    "invited": 1,
+                    UserId: req.user.id
+                }
+            });
         }).then((countInvited) => {
             allCounts.invitationsSent = countInvited;
             // count how many have not rsvpd
-            return db.GuestList.count({ where: { "rsvp": 0 } });
+            return db.GuestList.count({
+                where: {
+                    "rsvp": 0,
+                    UserId: req.user.id
+                }
+            });
         }).then((noRSVP) => {
             allCounts.notRSVP = noRSVP;
             // count how many have incomplete info
             return db.GuestList.count({
                 where: {
-                    [Op.or]: [{ first_name: null }, { last_name: null }, { phone_number: null }, { street_address: null }, { city_address: null }, { zip_code: null }, { state_address: null }, { food_restriction: null }, { additional_guests: null }, { email: null }]
+                    [Op.or]: [{ first_name: null }, { last_name: null }, { phone_number: null }, { street_address: null }, { city_address: null }, { zip_code: null }, { state_address: null }, { food_restriction: null }, { additional_guests: null }, { email: null }],
+                    UserId: req.user.id
                 }
             });
         }).then((countIncompleteInfo) => {
             allCounts.incompleteInfo = countIncompleteInfo;
             // count how many have RSVPd
-            return db.GuestList.count({ where: { "rsvp": 1 } });
+            return db.GuestList.count({
+                where: {
+                    "rsvp": 1,
+                    UserId: req.user.id
+                }
+
+            });
         }).then((yesRSVP) => {
             allCounts.haveRSVP = yesRSVP;
-            // count how many invites have not been sent
-            return db.GuestList.count({ where: { "invited": 0 } });
+            return db.GuestList.count({
+                where: {
+                    "invited": 0,
+                    UserId: req.user.id
+                }
+            });
         }).then((noInvited) => {
             allCounts.invitesNotSent = noInvited;
             res.render("dashboard", allCounts);
