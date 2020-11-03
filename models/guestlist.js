@@ -17,6 +17,15 @@ module.exports = function (sequelize, DataTypes) {
         rsvp: DataTypes.BOOLEAN,
         comment: DataTypes.STRING
     });
+
+    GuestList.associate = (models) => {
+        GuestList.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return GuestList;
 };
 
