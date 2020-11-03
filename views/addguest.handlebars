@@ -73,12 +73,18 @@
         <div class="row">
             <div class="twelve columns">
                 <label for="additionalGuests">Number of Additional Guests</label>
-                <input class="u-full width" type="number">
+                <input class="u-full width" type="number" id="additionalGuests">
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <label for="comments">Additional Comments</label>
+                <input class="u-full width" type="text" id="comment">
             </div>
         </div>
         <div class="row">
             <div class="six columns">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" id="submitNewGuest">
             </div>
             <div class="six columns">
                 {{!-- Button to go back to guest detail page without adding a new guest --}}
