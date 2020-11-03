@@ -1,11 +1,16 @@
 <!-- NAVBAR -->
 <div class="container full-width-container">
-    <div class="topnav">
+    <div class="topnav" id="myTopnav">
         <a href="/">Home</a>
-        <a href="/addguest">Add Guest</a>
-        <a class="active" href="/dashboard">Summary</a>
-        <a href="/logout">Logout</a>
-        <a>Welcome, {{email}}</a>
+        <a class="active" href="/addguest">Add Guest</a>
+        <a href="/dashboard">Summary</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <div class="topnav-right">
+            <a href="/logout">Logout</a>
+            <a>Welcome, {{email}}</a>
+        </div>
     </div>
 </div>
 
