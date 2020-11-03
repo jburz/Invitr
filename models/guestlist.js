@@ -9,14 +9,38 @@ module.exports = function (sequelize, DataTypes) {
         city_address: DataTypes.STRING,
         zip_code: DataTypes.STRING,
         state_address: DataTypes.STRING,
-        food_restriction: DataTypes.BOOLEAN,
+        food_restriction: {
+            type: DataTypes.BOOLEAN,
+            default: false
+        },
         food_restriction_details: DataTypes.STRING,
-        additional_guests: DataTypes.INTEGER,
-        email: DataTypes.STRING,
-        invited: DataTypes.BOOLEAN,
-        rsvp: DataTypes.BOOLEAN,
-        comment: DataTypes.STRING
-    });
+        additional_guests: {
+            type: DataTypes.INTEGER,
+            default: 0
+        },
+        email: {
+            type: DataTypes.STRING,
+        },
+        invited: {
+            type: DataTypes.BOOLEAN,
+            default: false
+        },
+        rsvp: {
+            type: DataTypes.BOOLEAN,
+            default: false
+        },
+        comment: DataTypes.STRING,
+    }
+    );
+
+    GuestList.associate = (models) => {
+        GuestList.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return GuestList;
 };
 
