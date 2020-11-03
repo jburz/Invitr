@@ -39,6 +39,7 @@ module.exports = function (app) {
         res.render("dashboard", currentUser);
     });
 
+
     //route to login if not authenticated
     app.get("/addguest", isAuthenticated, (req, res) => {
         console.log(req.user);
