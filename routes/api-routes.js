@@ -64,7 +64,8 @@ module.exports = function (app) {
             comment: req.body.comment,
             UserId: req.user.id
         }).then((results) => {
-            res.json(results);
+            console.log(results);
+            res.sendStatus(200);
         }).catch((err) => {
             console.log(err);
         });

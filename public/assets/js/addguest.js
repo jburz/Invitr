@@ -22,9 +22,10 @@ $("#submitNewGuest").click((event) => {
         rsvp: false,
         comment: trimInfo($("#comment"))
     };
-    console.log(newGuestInfo);
-    $.post("/api/newGuest", newGuestInfo).then(
-        res.redirect("/dashboard")
-    );
+    $.post("/api/newGuest", newGuestInfo).then((results) => {
+        if (results === "OK"){
+            window.location = "/details";
+        }
+    });
 }
 );
