@@ -20,6 +20,14 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     });
+
+    //associate user with guests
+    User.associate = (models) => {
+        User.hasMany(models.GuestList, {
+            onDelete: "cascade"
+        });
+    };
+
     //method to validate the password - this compares the inputted password against the password in the database.
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
