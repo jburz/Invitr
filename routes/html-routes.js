@@ -121,8 +121,11 @@ module.exports = function (app) {
     app.get("/details", isAuthenticated, (req, res) => {
         const guests = [];
         let endGuests = {};
-        guests.push({userEmail: req.user.email});
+        guests.push({ userEmail: req.user.email });
         db.GuestList.findAll({
+            where: {
+                UserId: req.user.id
+            }
         }).then((results) => {
             for (i = 0; i < results.length; i++) {
                 guests.push(results[i].dataValues);
