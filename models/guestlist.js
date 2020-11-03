@@ -9,7 +9,10 @@ module.exports = function (sequelize, DataTypes) {
         city_address: DataTypes.STRING,
         zip_code: DataTypes.STRING,
         state_address: DataTypes.STRING,
-        food_restriction: DataTypes.BOOLEAN,
+        food_restriction: {
+            type: DataTypes.BOOLEAN,
+            default: false
+        },
         food_restriction_details: DataTypes.STRING,
         additional_guests: {
             type: DataTypes.INTEGER,
@@ -18,8 +21,14 @@ module.exports = function (sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING,
         },
-        invited: DataTypes.BOOLEAN,
-        rsvp: DataTypes.BOOLEAN,
+        invited: {
+            type: DataTypes.BOOLEAN,
+            default: false
+        },
+        rsvp: {
+            type: DataTypes.BOOLEAN,
+            default: false
+        },
         comment: DataTypes.STRING,
     }
     );
