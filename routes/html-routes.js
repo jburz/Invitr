@@ -81,10 +81,19 @@ module.exports = function (app) {
 
     // route to lead to guest details
     app.get("/details", isAuthenticated, (req, res) => {
-        const currentUser = {
-            email: req.user.email
-        };
-        res.render("details", currentUser);
+        const guests = [];
+        let endGuests = {};
+        guests.push({userEmail: req.user.email});
+        db.GuestList.findAll({
+        }).then((results) => {
+            for (i = 0; i < results.length; i++) {
+                guests.push(results[i].dataValues);
+            }
+            endGuests = { guests };
+            console.log(endGuests);
+            res.render("details", endGuests);
+        });
+        // get all details, add to current user, pass to res.render
     });
 
 };
