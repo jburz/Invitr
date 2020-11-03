@@ -32,7 +32,11 @@ module.exports = function (app) {
 
     app.get("/api/all", (req, res) => {
         db.GuestList.findAll({
+            where: {
+                UserId: req.user.ids
+            }
         }).then((results) => {
+            console.log(results);
             res.json(results);
         }).catch((err) => {
             console.log(err);
