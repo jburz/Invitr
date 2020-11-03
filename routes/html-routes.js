@@ -1,25 +1,53 @@
+//require packages and files
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 module.exports = function (app) {
+    //route to dashboard if authenticated
     app.get("/", (req, res) => {
+        console.log(req.user);
+        if (req.user) {
+            res.redirect("/dashboard");
+        }
         res.render("landingpage");
     });
 
-    app.get("/dashboard", (req, res) => {
-        res.render("dashboard");
-    });
-
+    //route to dashboard if authenticated
     app.get("/login", (req, res) => {
+        console.log(req.user);
+        if (req.user) {
+            res.redirect("/dashboard");
+        }
         res.render("login");
     });
 
+    //route to dashboard if authenticated
     app.get("/signup", (req, res) => {
+        console.log(req.user);
+        if (req.user) {
+            res.redirect("/dashboard");
+        }
         res.render("signup");
     });
 
-    app.get("/addguest", (req, res) => {
-        res.render("addguest");
+    //route to login if not authenticated
+    app.get("/dashboard", isAuthenticated, (req, res) => {
+        console.log("hit dasboard");
+        const currentUser = {
+            email: req.user.email
+        };
+        console.log(currentUser);
+        res.render("dashboard", currentUser);
     });
 
-    app.get("/details", (req, res) => {
-        res.render("details");
+
+    //route to login if not authenticated
+    app.get("/addguest", isAuthenticated, (req, res) => {
+        console.log(req.user);
+        const currentUser = {
+            email: req.user.email
+        };
+        console.log(currentUser);
+        res.render("addguest", currentUser);
     });
+
 };
