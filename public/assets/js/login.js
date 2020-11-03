@@ -1,6 +1,5 @@
 $(() => {
-    $("#login").on("click", (event) => {
-        event.preventDefault();
+    $("#login").on("click", () => {
         const username = $("#usernameLogin").val().trim();
         const password = $("#passLogin").val().trim();
         const userObj = {

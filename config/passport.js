@@ -21,12 +21,12 @@ passport.use(new LocalStrategy(
         }).then((dbUser) => {
             if (!dbUser) {
                 return done(null, false, {
-                    message: "Incorrect email."
+                    message: "Incorrect email"
                 });
             }
             else if (!dbUser.validPassword(password)) {
                 return done(null, false, {
-                    message: "Incorrect password."
+                    message: "Incorrect password"
                 });
             }
             return done(null, dbUser);

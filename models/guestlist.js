@@ -1,7 +1,7 @@
 // ORM that works with the Guest List part of the app
 
 module.exports = function (sequelize, DataTypes) {
-    const GuestList = sequelize.define("guest_list", {
+    const GuestList = sequelize.define("GuestList", {
         first_name: DataTypes.STRING,
         last_name: DataTypes.STRING,
         phone_number: DataTypes.STRING,

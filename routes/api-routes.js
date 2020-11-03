@@ -14,15 +14,12 @@ module.exports = function (app) {
 
     //creates a new user and redirects to home
     app.post("/api/signup", (req, res) => {
-        console.log(req.body.username);
-        console.log(req.body.password);
         db.User.create({
             email: req.body.username,
             password: req.body.password
         }).then(() => {
             res.redirect(307, "/api/login");
         }).catch((err) => {
-            console.log(err);
             res.status(401).json(err);
         });
     });
@@ -34,13 +31,16 @@ module.exports = function (app) {
     });
 
     app.get("/api/all", (req, res) => {
-        db.GuestList.findAll({}).then((results) => {
+        db.GuestList.findAll({
+        }).then((results) => {
             res.json(results);
+        }).catch((err) => {
+            console.log(err);
         });
     });
 
     app.post("/api/newGuest", (req, res) => {
-        db.GuestList.create({ 
+        db.GuestList.create({
             first_name: req.body.firstName,
             last_name: req.body.lastName,
             phone_number: req.body.phoneNumber,
@@ -55,8 +55,11 @@ module.exports = function (app) {
             invited: req.body.invited,
             rsvp: req.body.rsvp,
             comment: req.body.comment
+        }).then((results) => {
+            res.json(results);
+        }).catch((err) => {
+            console.log(err);
         });
-        res.json(results);
     });
 
 };
