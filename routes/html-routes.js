@@ -13,7 +13,6 @@ module.exports = function (app) {
 
     //route to dashboard if authenticated
     app.get("/login", (req, res) => {
-        console.log(req.user);
         if (req.user) {
             res.redirect("/dashboard");
         }

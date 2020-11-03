@@ -9,7 +9,6 @@ module.exports = function (app) {
     app.post("/api/login", passport.authenticate("local", {
         failureFlash: true
     }), (req, res) => {
-        console.log(res);
         res.json(req.user);
     });
 
