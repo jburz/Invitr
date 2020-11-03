@@ -22,7 +22,6 @@ module.exports = function (sequelize, DataTypes) {
     });
     //method to validate the password - this compares the inputted password against the password in the database.
     User.prototype.validPassword = function (password) {
-        console.log("hit password validation");
         return bcrypt.compareSync(password, this.password);
     };
 
