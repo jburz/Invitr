@@ -1,30 +1,28 @@
 <!-- NAVBAR -->
 <div class="container full-width-container">
     <div class="topnav" id="myTopnav">
-        <a href="/">Home</a>
+        <a class="active" href="/">Home</a>
     </div>
 </div>
 
-<div class="container">
-    <div class="center">
-        <div class="row">
-            <div class="columns box">
-                <form>
-                    <div class="form-group">
-                        <label for="Login">Username</label>
-                        <input type="email" class="form-control u-full-width" id="usernameLogin" placeholder="Username">
-                        <label for="Login">Password</label>
-                        <input type="password" class="form-control u-full-width" id="passLogin" placeholder="Password">
-                        {{#if messages.error}}
-                        <h6>{{messages.error}}</h6>
-                        {{/if}}
-                    </div>
-                    <div class="one-half columns">
-                        <button type="submit" class="btn btn-primary" id="login">Login</button>
-                    </div>
-                    <h6>Or sign up <a href="/signup">here</a></h6>
-                </form>
-            </div>
+<div class="container content box center">
+    <div class="row">
+        <div class="columns">
+            <form>
+                <div class="form-group">
+                    <label for="Login">Email</label>
+                    <input type="email" class="form-control u-full-width" id="usernameLogin" placeholder="Username">
+                    <label for="Login">Password</label>
+                    <input type="password" class="form-control u-full-width" id="passLogin" placeholder="Password">
+                    {{#if messages.error}}
+                    <h6 style="color: red;">{{messages.error}}</h6>
+                    {{/if}}
+                </div>
+                <div class="one-half columns">
+                    <button type="submit" class="btn-primary" id="login">Login</button>
+                </div>
+                <h6>Or sign up <a href="/signup">here</a></h6>
+            </form>
         </div>
     </div>
 </div>
