@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
     GuestList.associate = (models) => {
         GuestList.belongsTo(models.User, {
             foreignKey: {
-                // allowNull: false
+                allowNull: false
             }
         });
     };

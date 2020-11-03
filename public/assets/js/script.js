@@ -2,15 +2,15 @@
 
 // ==== ADD A GUEST PAGE ==================
 
-function trimInfo(value){
+function trimInfo(value) {
     return value.val().trim();
 }
 
 $("#submitNewGuest").click((event) => {
     event.preventDefault();
     const newGuestInfo = {
-        firstName : trimInfo($("#firstName")),
-        lastName : trimInfo($("#lastName")),
+        firstName: trimInfo($("#firstName")),
+        lastName: trimInfo($("#lastName")),
         phoneNumber: trimInfo($("#phoneNumber")),
         streetAddress: trimInfo($("#streetAddress")),
         cityAddress: trimInfo($("#cityAddress")),

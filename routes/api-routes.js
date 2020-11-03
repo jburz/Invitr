@@ -57,7 +57,7 @@ module.exports = function (app) {
             invited: req.body.invited,
             rsvp: req.body.rsvp,
             comment: req.body.comment,
-            UserID: 1
+            UserId: req.user.id
         }).then((results) => {
             res.json(results);
         }).catch((err) => {
