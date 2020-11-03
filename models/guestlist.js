@@ -15,13 +15,14 @@ module.exports = function (sequelize, DataTypes) {
         email: DataTypes.STRING,
         invited: DataTypes.BOOLEAN,
         rsvp: DataTypes.BOOLEAN,
-        comment: DataTypes.STRING
-    });
+        comment: DataTypes.STRING,
+    }
+    );
 
     GuestList.associate = (models) => {
         GuestList.belongsTo(models.User, {
             foreignKey: {
-                allowNull: false
+                // allowNull: false
             }
         });
     };

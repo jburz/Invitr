@@ -40,6 +40,8 @@ module.exports = function (app) {
     });
 
     app.post("/api/newGuest", (req, res) => {
+        console.log(req.user);
+        console.log(req.body);
         db.GuestList.create({
             first_name: req.body.firstName,
             last_name: req.body.lastName,
@@ -54,7 +56,8 @@ module.exports = function (app) {
             email: req.body.email,
             invited: req.body.invited,
             rsvp: req.body.rsvp,
-            comment: req.body.comment
+            comment: req.body.comment,
+            UserID: 1
         }).then((results) => {
             res.json(results);
         }).catch((err) => {
