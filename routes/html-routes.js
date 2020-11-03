@@ -67,7 +67,18 @@ module.exports = function (app) {
             // count how many have incomplete info
             return db.GuestList.count({
                 where: {
-                    [Op.or]: [{ first_name: null }, { last_name: null }, { phone_number: null }, { street_address: null }, { city_address: null }, { zip_code: null }, { state_address: null }, { food_restriction: null }, { additional_guests: null }, { email: null }],
+                    [Op.or]: [
+                        { first_name: "" },
+                        { last_name: "" },
+                        { phone_number: "" },
+                        { street_address: "" },
+                        { city_address: "" },
+                        { zip_code: "" },
+                        { state_address: "" },
+                        { food_restriction: "" },
+                        { additional_guests: "" },
+                        { email: "" }
+                    ],
                     UserId: req.user.id
                 }
             });
@@ -92,6 +103,8 @@ module.exports = function (app) {
         }).then((noInvited) => {
             allCounts.invitesNotSent = noInvited;
             res.render("dashboard", allCounts);
+        }).catch(err => {
+            console.log(err);
         });
     });
 

@@ -11,8 +11,13 @@ module.exports = function (sequelize, DataTypes) {
         state_address: DataTypes.STRING,
         food_restriction: DataTypes.BOOLEAN,
         food_restriction_details: DataTypes.STRING,
-        additional_guests: DataTypes.INTEGER,
-        email: DataTypes.STRING,
+        additional_guests: {
+            type: DataTypes.INTEGER,
+            default: 0
+        },
+        email: {
+            type: DataTypes.STRING,
+        },
         invited: DataTypes.BOOLEAN,
         rsvp: DataTypes.BOOLEAN,
         comment: DataTypes.STRING,
