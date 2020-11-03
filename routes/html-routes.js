@@ -43,4 +43,12 @@ module.exports = function (app) {
         res.render("addguest", currentUser);
     });
 
+    // route to lead to guest details
+    app.get("/details", isAuthenticated, (req, res) => {
+        const currentUser = {
+            email: req.user.email
+        };
+        res.render("details", currentUser);
+    });
+
 };
