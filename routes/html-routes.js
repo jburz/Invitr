@@ -1,5 +1,5 @@
 //require packages and files
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isauthenticated");
 const db = require("../models");
 const { Op } = require("sequelize");
 
