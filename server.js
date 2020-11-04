@@ -30,7 +30,6 @@ require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 db.sequelize.sync({}).then(() => {
-    db.sequelize.drop();
     app.listen(PORT, () => {
         console.log("Listening on Port: " + PORT);
     });
