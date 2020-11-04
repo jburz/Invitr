@@ -32,7 +32,12 @@ module.exports = function (app) {
 
     app.get("/api/all", (req, res) => {
         db.GuestList.findAll({
+            where: {
+                UserId: req.user.id
+            }
         }).then((results) => {
+            console.log(req.user.id);
+            console.log(results);
             res.json(results);
         }).catch((err) => {
             console.log(err);
@@ -40,6 +45,8 @@ module.exports = function (app) {
     });
 
     app.post("/api/newGuest", (req, res) => {
+        console.log(req.user);
+        console.log(req.body);
         db.GuestList.create({
             first_name: req.body.firstName,
             last_name: req.body.lastName,
@@ -54,9 +61,11 @@ module.exports = function (app) {
             email: req.body.email,
             invited: req.body.invited,
             rsvp: req.body.rsvp,
-            comment: req.body.comment
+            comment: req.body.comment,
+            UserId: req.user.id
         }).then((results) => {
-            res.json(results);
+            console.log(results);
+            res.sendStatus(200);
         }).catch((err) => {
             console.log(err);
         });

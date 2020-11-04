@@ -1,5 +1,5 @@
 //require packages and files
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isauthenticated");
 const db = require("../models");
 const { Op } = require("sequelize");
 
@@ -8,24 +8,27 @@ module.exports = function (app) {
     app.get("/", (req, res) => {
         if (req.user) {
             res.redirect("/dashboard");
+        } else {
+            res.render("landingpage");
         }
-        res.render("landingpage");
     });
 
     //route to dashboard if authenticated
     app.get("/login", (req, res) => {
         if (req.user) {
             res.redirect("/dashboard");
+        } else {
+            res.render("login");
         }
-        res.render("login");
     });
 
     //route to dashboard if authenticated
     app.get("/signup", (req, res) => {
         if (req.user) {
             res.redirect("/dashboard");
+        } else {
+            res.render("signup");
         }
-        res.render("signup");
     });
 
     //route to login if not authenticated
@@ -39,34 +42,72 @@ module.exports = function (app) {
             incompleteInfo: 0,
             haveRSVP: 0
         };
-        db.GuestList.count().then((allGuests) => {
+        db.GuestList.count({
+            where: {
+                UserId: req.user.id
+            }
+        }).then((allGuests) => {
             // count how many guests are listed in database
             allCounts.allListed = allGuests;
             // count how many invitations sent
-            return db.GuestList.count({ where: { "invited": 1 } });
+            return db.GuestList.count({
+                where: {
+                    "invited": 1,
+                    UserId: req.user.id
+                }
+            });
         }).then((countInvited) => {
             allCounts.invitationsSent = countInvited;
             // count how many have not rsvpd
-            return db.GuestList.count({ where: { "rsvp": 0 } });
+            return db.GuestList.count({
+                where: {
+                    "rsvp": 0,
+                    UserId: req.user.id
+                }
+            });
         }).then((noRSVP) => {
             allCounts.notRSVP = noRSVP;
             // count how many have incomplete info
             return db.GuestList.count({
                 where: {
-                    [Op.or]: [{ first_name: null }, { last_name: null }, { phone_number: null }, { street_address: null }, { city_address: null }, { zip_code: null }, { state_address: null }, { food_restriction: null }, { additional_guests: null }, { email: null }]
+                    [Op.or]: [
+                        { first_name: "" },
+                        { last_name: "" },
+                        { phone_number: "" },
+                        { street_address: "" },
+                        { city_address: "" },
+                        { zip_code: "" },
+                        { state_address: "" },
+                        { food_restriction: "" },
+                        { additional_guests: "" },
+                        { email: "" }
+                    ],
+                    UserId: req.user.id
                 }
             });
         }).then((countIncompleteInfo) => {
             allCounts.incompleteInfo = countIncompleteInfo;
             // count how many have RSVPd
-            return db.GuestList.count({ where: { "rsvp": 1 } });
+            return db.GuestList.count({
+                where: {
+                    "rsvp": 1,
+                    UserId: req.user.id
+                }
+
+            });
         }).then((yesRSVP) => {
             allCounts.haveRSVP = yesRSVP;
-            // count how many invites have not been sent
-            return db.GuestList.count({ where: { "invited": 0 } });
+            return db.GuestList.count({
+                where: {
+                    "invited": 0,
+                    UserId: req.user.id
+                }
+            });
         }).then((noInvited) => {
             allCounts.invitesNotSent = noInvited;
             res.render("dashboard", allCounts);
+        }).catch(err => {
+            console.log(err);
         });
     });
 
@@ -83,8 +124,11 @@ module.exports = function (app) {
     app.get("/details", isAuthenticated, (req, res) => {
         const guests = [];
         let endGuests = {};
-        guests.push({userEmail: req.user.email});
+        guests.push({ userEmail: req.user.email });
         db.GuestList.findAll({
+            where: {
+                UserId: req.user.id
+            }
         }).then((results) => {
             for (i = 0; i < results.length; i++) {
                 guests.push(results[i].dataValues);
