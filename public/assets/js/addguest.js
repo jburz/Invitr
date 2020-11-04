@@ -14,7 +14,7 @@ $("#submitNewGuest").click((event) => {
         cityAddress: trimInfo($("#cityAddress")),
         zipAddress: trimInfo($("#zipAddress")),
         stateAddress: trimInfo($("#stateAddress")),
-        foodRestrictBool: false,
+        foodRestrictBool: $("#foodRestrictBool").val(),
         foodRestrictText: trimInfo($("#foodRestrictText")),
         additionalGuests: trimInfo($("#additionalGuests")),
         email: trimInfo($("#email")),
