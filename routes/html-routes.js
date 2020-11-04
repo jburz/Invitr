@@ -134,7 +134,6 @@ module.exports = function (app) {
                 guests.push(results[i].dataValues);
             }
             endGuests = { guests };
-            console.log(endGuests);
             res.render("details", endGuests);
         });
         // get all details, add to current user, pass to res.render
