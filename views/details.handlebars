@@ -14,58 +14,55 @@
     </div>
 </div>
 
-
-<div class="container">
-    <div class="row">
-        <div class="twelve columns">
-            <h1>Guest Details</h1>
+<div id="page-container">
+    <div id="content-wrap">
+        <h1 class="dhsummary">Guest Details</h1>
+        <div class="container box overflow-x">
+            {{!-- this row holds the table that holds the information --}}
+            <div class="row">
+                <div class="twelve columns">
+                    <table class="u-full-width">
+                        <thead>
+                            <tr>
+                                {{!-- Column Names --}}
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Phone Number</th>
+                                <th>Street Address</th>
+                                <th>City</th>
+                                <th>Zip Code</th>
+                                <th>State</th>
+                                <th>Food Restrictions</th>
+                                <th>Additional Guests</th>
+                                <th>Email</th>
+                                <th>Invitation Sent</th>
+                                <th>RSVP Received</th>
+                                <th>Additional Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each guests }}
+                            <tr>
+                                <td>{{ first_name }}</td>
+                                <td>{{ last_name }}</td>
+                                <td>{{ phone_number }}</td>
+                                <td>{{ street_address }}</td>
+                                <td>{{ city_address }}</td>
+                                <td>{{ state_address }}</td>
+                                <td>{{ zip_code }}</td>
+                                <td>{{ food_restrictions }}</td>
+                                <td>{{ additional_guests }}</td>
+                                <td>{{ email }}</td>
+                                <td>{{ invited }}</td>
+                                <td>{{ rsvp }}</td>
+                                <td>{{ comment }}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
-    {{!-- this row holds the table that holds the information --}}
-    <div class="row">
-        <div class="twelve columns">
-            <table class="u-full-width">
-                <thead>
-                    <tr>
-                        {{!-- Column Names --}}
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Phone Number</th>
-                        <th>Street Address</th>
-                        <th>City</th>
-                        <th>Zip Code</th>
-                        <th>State</th>
-                        <th>Food Restrictions</th>
-                        <th>Additional Guests</th>
-                        <th>Email</th>
-                        <th>Invitation Sent</th>
-                        <th>RSVP Received</th>
-                        <th>Additional Comments</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each guests }}
-                    <tr>
-                        <td>{{ first_name }}</td>
-                        <td>{{ last_name }}</td>
-                        <td>{{ phone_number }}</td>
-                        <td>{{ street_address }}</td>
-                        <td>{{ city_address }}</td>
-                        <td>{{ state_address }}</td>
-                        <td>{{ zip_code }}</td>
-                        <td>{{ food_restrictions }}</td>
-                        <td>{{ additional_guests }}</td>
-                        <td>{{ email }}</td>
-                        <td>{{ invited }}</td>
-                        <td>{{ rsvp }}</td>
-                        <td>{{ comment }}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
+    <footer id="footer">Footer</footer>
 </div>
