@@ -1,5 +1,5 @@
 //require packages and files
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isauthenticated");
 const db = require("../models");
 const { Op } = require("sequelize");
 
@@ -8,24 +8,27 @@ module.exports = function (app) {
     app.get("/", (req, res) => {
         if (req.user) {
             res.redirect("/dashboard");
+        } else {
+            res.render("landingpage");
         }
-        res.render("landingpage");
     });
 
     //route to dashboard if authenticated
     app.get("/login", (req, res) => {
         if (req.user) {
             res.redirect("/dashboard");
+        } else {
+            res.render("login");
         }
-        res.render("login");
     });
 
     //route to dashboard if authenticated
     app.get("/signup", (req, res) => {
         if (req.user) {
             res.redirect("/dashboard");
+        } else {
+            res.render("signup");
         }
-        res.render("signup");
     });
 
     //route to login if not authenticated
@@ -131,7 +134,6 @@ module.exports = function (app) {
                 guests.push(results[i].dataValues);
             }
             endGuests = { guests };
-            console.log(endGuests);
             res.render("details", endGuests);
         });
         // get all details, add to current user, pass to res.render
