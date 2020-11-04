@@ -116,19 +116,30 @@ body, html {
 }
 
 /* FOOTER CSS */
-.footer {
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #eddcd2;
+  height: 2.5rem;            /* Footer height */
   color: #333;
+  background-color: #eddcd2;
   text-align: center;
 }
 
 /* CENTER IN FORMS */
 .content {
   max-width: 500px;
+  margin-top: 20px;
 }
 
 /* BOX LOGIN */
@@ -163,46 +174,6 @@ body, html {
   text-align: center;
 }
 
-.signupbg { 
-  background-image: url("./public/assets/imgs/background.jpg");
-/* Full height */
-  width: 100%;
-  height: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.loginbg { 
-  background-image: url(./assets/image/gifts.jpg);
-/* Full height */
-  width: 100%;
-  height: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.dashboardbg { 
-  background-image: url(./assets/image/closeup.jpg);
-/* Full height */
-  width: 100%;
-  height: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.addguestbg { 
-  background-image: url(./assets/image/place\ setting.jpg);
-/* Full height */
-  width: 100%;
-  height: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.overflow-x {
+  overflow-x: scroll;
 }
