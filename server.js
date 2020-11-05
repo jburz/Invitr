@@ -9,6 +9,7 @@ const flash = require("express-flash");
 const PORT = process.env.PORT || 8080;
 
 //setting up middleware
+app.use(express.static("public/imgs"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
