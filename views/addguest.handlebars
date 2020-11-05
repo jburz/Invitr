@@ -1,3 +1,17 @@
+<style>
+    body {
+        /* The image used */
+        background-image: url("img_girl.jpg");
+
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
 {{!-- Navbar --}}
 <style>
     body {
@@ -76,7 +90,10 @@
                 <div class="row">
                     <div class="two columns">
                         <label for="foodRestrictBool">Food restrictions</label>
-                        <input class="u-full width" type="checkbox" id="foodRestrictBool">
+                        <select class="u-full-width" id="foodRestrictBool">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
                     </div>
                     <div class="ten columns">
                         <label for="foodRestrictText">Details</label>
@@ -116,12 +133,11 @@
                 </div>
             </form>
         </div>
+        <footer id="footer">
+            <h6>
+                &#169; 2020 Cloud 9 is <a href="https://github.com/abbynf">Abby Jo</a>, <a
+                    href="https://github.com/jburz">Jake</a>, <a href="https://github.com/Feizhi255">Jordan</a>, <a
+                    href="https://github.com/Teknix420">Travis (not CI)</a>
+            </h6>
+        </footer>
     </div>
-    <footer id="footer">
-        <h6>
-            &#169; 2020 Cloud 9 is <a href="https://github.com/abbynf">Abby Jo</a>, <a
-                href="https://github.com/jburz">Jake</a>, <a href="https://github.com/Feizhi255">Jordan</a>, <a
-                href="https://github.com/Teknix420">Travis (not CI)</a>
-        </h6>
-    </footer>
-</div>
