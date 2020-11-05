@@ -14,6 +14,7 @@ $(() => {
         }).then(() => {
             location.replace("/dashboard");
         }).catch((err) => {
+            location.reload();
             console.log(err);
         });
     });
