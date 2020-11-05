@@ -1,6 +1,7 @@
 // Create routes and set up logic within those routes when required
 const db = require("../models");
 const passport = require("../config/passport");
+const nodemailer = require("nodemailer");
 
 // Provide a list of all people currently on the guest list
 module.exports = function (app) {
@@ -18,7 +19,36 @@ module.exports = function (app) {
             email: req.body.username,
             password: req.body.password
         }).then(() => {
-            res.redirect(307, "/api/login");
+            console.log("hit signup");
+
+            //nodemailer send welcome email
+            //set up transporter, default settings for account
+            const transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    user: "invitr.do.not.reply@gmail.com",
+                    pass: "cLoUd9t3am!"
+                }
+            });
+
+            //create email template
+            const mailOptions = {
+                from: "invitr.do.not.reply@gmail.com",
+                to: req.body.username,
+                subject: "Welcome to Invitr",
+                text: "Thank you for choosing invitr!  Use our website to manage the guests for your wedding!  You can add guests and update their details.  See a summary of the guests on our simple summary page or details about each guest on the details page.  -Invitr Team"
+            };
+
+            //mail and log result
+            transporter.sendMail(mailOptions, (err, data) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Email Sent!", data);
+                }
+                res.redirect(307, "/api/login");
+            });
+
         }).catch((err) => {
             res.status(401).json(err);
         });
