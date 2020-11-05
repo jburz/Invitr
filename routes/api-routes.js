@@ -19,7 +19,6 @@ module.exports = function (app) {
             email: req.body.username,
             password: req.body.password
         }).then(() => {
-            console.log("hit signup");
 
             //nodemailer send welcome email
             //set up transporter, default settings for account
