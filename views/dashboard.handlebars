@@ -9,20 +9,22 @@
 </style>
 
 <!-- NAVBAR -->
-<div class="container full-width-container">
-    <div class="topnav" id="myTopnav">
-        <a href="/">Home</a>
-        <a href="/addguest">Add Guest</a>
-        <a class="active" href="/dashboard">Summary</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-        <div class="topnav-right">
-            <a href="/logout">Logout</a>
-            <a>Welcome, {{email}}</a>
+<nav>
+    <div class="container full-width-container">
+        <div class="topnav" id="myTopnav">
+            <a href="/">Home</a>
+            <a href="/addguest">Add Guest</a>
+            <a class="active" href="/dashboard">Summary</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="topnav-right">
+                <a href="/logout">Logout</a>
+                <a>Welcome, {{email}}</a>
+            </div>
         </div>
     </div>
-</div>
+</nav>
 
 <div id="page-container">
     <div id="content-wrap">
@@ -30,17 +32,22 @@
 
             <div class="row">
                 <div class="twelve columns">
+                  <header>
                     <h1 class="dhsummary">Summary</h1>
+                  </header>
                 </div>
             </div>
 
+            <aside>
             <div class="row u-full-width">
                 <div class="twelve columns">
                     <a href="/details"> <button class="button-primary u-full-width" id="viewGuests">View guest
                             details</button></a>
                 </div>
             </div>
+            </aside>
 
+            <main>
             <div class="row">
                 <div class="four columns">
                     <div class="catBox">
@@ -83,6 +90,7 @@
                 </div>
             </div>
         </div>
+        </main>
     </div>
     <footer id="footer">
         <h6>

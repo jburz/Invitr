@@ -1,4 +1,3 @@
-{{!-- Navbar --}}
 <style>
     body {
         background: url(./assets/imgs/combined.jpg);
@@ -9,6 +8,8 @@
     }
 </style>
 
+{{!-- Navbar --}}
+<nav>
 <div class="container full-width-container">
     <div class="topnav" id="myTopnav">
         <a href="/">Home</a>
@@ -20,15 +21,19 @@
         <div class="topnav-right">
             <a href="/logout">Logout</a>
             <a>Welcome, {{email}}</a>
+
         </div>
     </div>
-</div>
+</nav>
 
 <div id="page-container">
     <div id="content-wrap">
         <div class="container content box">
+        <header>
             <h1 class="dhsummary">Add a guest</h1>
+         </header>
             {{!-- form for adding a new guest --}}
+            <main>
             <form>
                 {{!-- Name --}}
                 <div class="row">
@@ -118,6 +123,7 @@
                     </div>
                 </div>
             </form>
+            </main>
         </div>
         <footer id="footer">
             <h6>
