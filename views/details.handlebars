@@ -1,26 +1,33 @@
 {{!-- Nav Bar --}}
 <div class="container full-width-container">
-    <div class="topnav" id="myTopnav">
-        <a href="/">Home</a>
-        <a href="/addguest">Add Guest</a>
-        <a href="/dashboard">Summary</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-        <div class="topnav-right">
-            <a href="/logout">Logout</a>
-            <a>Welcome, {{ guests.[0].userEmail }}</a>
+
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="/">Home</a>
+            <a href="/addguest">Add Guest</a>
+            <a href="/dashboard">Summary</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="topnav-right">
+                <a href="/logout">Logout</a>
+                <a>Welcome, {{ guests.[0].userEmail }}</a>
+            </div>
         </div>
-    </div>
+    </nav>
 </div>
 
-
-<div class="container u-max-full-width">
-    <div class="row">
-        <div class="twelve columns">
-            <h1>Guest Details</h1>
+<header>
+    <div class="container u-max-full-width">
+        <div class="row">
+            <div class="twelve columns">
+                <h1>Guest Details</h1>
+            </div>
         </div>
-    </div>
+</header>
+
+<main>
+
 
     {{!-- this row holds the table that holds the information --}}
     <div class="row">
@@ -66,8 +73,11 @@
             </table>
         </div>
     </div>
+</main>
 
+<footer>
     <div class="footer">
         <p>&#169; 2020</p>
     </div>
+</footer>
 </div>
